@@ -7,12 +7,19 @@
     { flakelight, ... }@inputs:
     flakelight ./. {
       inherit inputs;
-      devShell.packages =
-        pkgs: with pkgs; [
+      devShell = pkgs: {
+        packages = with pkgs; [
           nodejs_latest
           pnpm
           typescript
           typescript-language-server
+          playwright-driver.browsers
         ];
+
+        env = {
+          PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+          PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "1";
+        };
+      };
     };
 }
