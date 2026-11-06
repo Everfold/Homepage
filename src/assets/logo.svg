@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 400" role="img" aria-label="Everfold layered fold logo">
+<defs>
+ <linearGradient id="bottom" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4166d8"/><stop offset="1" stop-color="#56fdfd"/></linearGradient>
+ <linearGradient id="middle" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#493ad2"/><stop offset="1" stop-color="#82b8ff"/></linearGradient>
+ <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9b3af6"/><stop offset="1" stop-color="#b5a6fc"/></linearGradient>
+</defs>
+<g transform="translate(45 35)">
+ <path d="M25 220 Q12 211 31 198 L158 127 Q174 118 190 127 L316 198 Q333 210 315 222 L191 295 Q174 305 158 295 Z" fill="url(#bottom)"/>
+ <path d="M25 164 Q12 153 31 141 L158 70 Q174 61 190 70 L316 141 Q333 153 315 165 L191 238 Q174 248 158 238 Z" fill="url(#middle)"/>
+ <path d="M25 107 Q12 96 31 84 L158 13 Q174 4 190 13 L316 84 Q330 92 318 105 Q312 111 297 104 L252 83 Q236 76 221 84 L162 118 Q144 128 144 152 Q144 169 129 176 Q118 182 105 175 Z" fill="url(#top)"/>
+</g>
+<text x="415" y="240" font-family="Source Han Mono" font-size="128" font-weight="600" letter-spacing="-15" fill="#111322">Everfold</text>
+</svg>
