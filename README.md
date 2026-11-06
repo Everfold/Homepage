@@ -1,4 +1,4 @@
-# Beamlet Homepage
+# Everfold Homepage
 
 ## Build
 
