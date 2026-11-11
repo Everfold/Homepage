@@ -5,6 +5,8 @@ import react from '@astrojs/react';
 
 import sitemap from '@astrojs/sitemap';
 
+import starlight from '@astrojs/starlight';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -14,5 +16,10 @@ export default defineConfig({
     },
   },
     site: 'https://everfold.org',
-  integrations: [react(), sitemap()]
+  integrations: [
+    react(),
+    sitemap(),
+    starlight({
+      title: 'Everfold Document',
+    }),]
 });
