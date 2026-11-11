@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://everfold.org/sitemap-index.xml
