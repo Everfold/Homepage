@@ -1,0 +1,40 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+const isEnglish = Astro.currentLocale === "en";
+const text = isEnglish
+  ? {
+      title: "Page not found",
+      description: "The requested page could not be found.",
+      tagline: "Check the URL or return to the documentation.",
+      action: "Read the documentation",
+      docs: "/en/docs/",
+    }
+  : {
+      title: "页面未找到",
+      description: "找不到您请求的页面。",
+      tagline: "请检查网址，或返回文档。",
+      action: "阅读文档",
+      docs: "/docs/",
+    };
+---
+
+<StarlightPage
+  frontmatter={{
+    title: text.title,
+    description: text.description,
+    template: "splash",
+    editUrl: false,
+    pagefind: false,
+    hero: {
+      tagline: text.tagline,
+      actions: [
+        {
+          text: text.action,
+          link: text.docs,
+          icon: "right-arrow",
+        },
+      ],
+    },
+  }}
+/>

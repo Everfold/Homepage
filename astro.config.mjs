@@ -14,6 +14,9 @@ export default defineConfig({
   site: "https://everfold.org",
   prefetch: true,
   compressHTML: true,
+  redirects: {
+    "/en": "/en/docs/",
+  },
   vite: {
     optimizeDeps: {
       exclude: ["astro:toolbar:internal"],
@@ -39,7 +42,16 @@ export default defineConfig({
     react(),
     sitemap(),
     starlight({
-      title: "Everfold Document",
+      title: {
+        "zh-CN": "Everfold 文档",
+        en: "Everfold Documentation",
+      },
+      defaultLocale: "root",
+      locales: {
+        root: { label: "简体中文", lang: "zh-CN" },
+        en: { label: "English", lang: "en" },
+      },
+      disable404Route: true,
     }),
   ],
 });
