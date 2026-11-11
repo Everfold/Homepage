@@ -17,6 +17,7 @@ pnpm preview
 
 # Lint
 pnpm lint
+pnpm lint:fix
 
 # Format
 pnpm format
