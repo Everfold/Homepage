@@ -1,13 +1,15 @@
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
 export default {
-  plugins: ['prettier-plugin-astro',"prettier-plugin-tailwindcss"],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+
+  tailwindStylesheet: "./src/styles/global.css",
+
   overrides: [
     {
-      files: '*.astro',
+      files: "*.astro",
       options: {
-        parser: 'astro',
+        parser: "astro",
       },
     },
-    {"tailwindStylesheet": "src/styles/global.css"}
   ],
 };
