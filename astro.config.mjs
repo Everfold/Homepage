@@ -24,7 +24,16 @@ export default defineConfig({
       },
     },
 
-    plugins: [tailwindcss()],
+    plugins: [
+      {
+        name: "resolve-astro-assets",
+        enforce: "pre",
+        resolveId(id) {
+          if (id === "astro:assets") return "\0astro:assets";
+        },
+      },
+      tailwindcss(),
+    ],
   },
   integrations: [
     react(),
