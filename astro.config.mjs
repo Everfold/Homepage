@@ -11,15 +11,21 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://everfold.org",
+  prefetch: true,
+  compressHTML: true,
   vite: {
     optimizeDeps: {
-      // Keep the dev toolbar's virtual module out of dependency prebundling.
       exclude: ["astro:toolbar:internal"],
+    },
+    server: {
+      watch: {
+        ignored: ["**/.direnv/**"],
+      },
     },
 
     plugins: [tailwindcss()],
   },
-  site: "https://everfold.org",
   integrations: [
     react(),
     sitemap(),
