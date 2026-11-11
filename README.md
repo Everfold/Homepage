@@ -3,10 +3,24 @@
 ## Build
 
 ```bash
+# Installs dependencies
+pnpm install
+
+# Local dev
 pnpm dev
-pnpm preview
+
+# Build production
 pnpm build
+
+# Preview locally
+pnpm preview
+
+# Lint
 pnpm lint
+
+# Format
 pnpm fmt
-pnpm test:e2e
+
+# Update
+pnpm update -L
 ```

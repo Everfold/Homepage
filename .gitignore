@@ -1,5 +1,10 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,emacs,linux,direnv,visualstudiocode,react
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,emacs,linux,direnv,visualstudiocode,react
+# Created by https://www.toptal.com/developers/gitignore/api/node,astro,emacs,linux,react,direnv,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,emacs,linux,react,direnv,visualstudiocode
+
+### Astro ###
+# Gitignore template for Astro projects
+# Ignore content collection generated files
+.astro
 
 ### direnv ###
 .direnv
@@ -242,11 +247,4 @@ sketch
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/node,emacs,linux,direnv,visualstudiocode,react
-
-# Playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+# End of https://www.toptal.com/developers/gitignore/api/node,astro,emacs,linux,react,direnv,visualstudiocode
