@@ -2,6 +2,7 @@
   "name": "everfold",
   "type": "module",
   "version": "0.1.0",
+  "private": true,
   "engines": {
     "node": ">=22.23.4"
   },
@@ -9,7 +10,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.7",
@@ -19,5 +21,9 @@
     "astro": "^7.4.10",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^26.6.6"
   }
 }
