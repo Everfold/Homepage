@@ -19,7 +19,7 @@ pnpm preview
 pnpm lint
 
 # Format
-pnpm fmt
+pnpm format
 
 # Update
 pnpm update -L
