@@ -23,6 +23,9 @@ pnpm format
 
 # Update
 pnpm update -L
+
+# AI
+npx skills update
 ```
 
 ### Playwright

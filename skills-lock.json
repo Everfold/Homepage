@@ -1,71 +1,71 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "gsap-core": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-core/SKILL.md",
-      "computedHash": "c4a01101d9e1aafbf4b49f75d74f9349790d8741981ba0237c990093863035a6"
+      "computedHash": "dfc8ba849fa8b81c8cc60964ee2a5fa8db4b2a2611801cf549a5b267b8284fa5"
     },
     "gsap-frameworks": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-frameworks/SKILL.md",
-      "computedHash": "4852e85a48088d9044b08ebd1db607915b628c0c3ec7e04300713f546728fbdf"
+      "computedHash": "25f2f1f85c3d7a6431623c50e894af58213cc96d4e6660564be80ca011b883f6"
     },
     "gsap-performance": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-performance/SKILL.md",
-      "computedHash": "863842ac2d7aee53fd4f0025c960173d7ad3e658a5715b89b2211fa280213c1f"
+      "computedHash": "4dd4382cad329927a248fbe55c426901f2bf4f5c598db6ef5ec38c19861b829f"
     },
     "gsap-plugins": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-plugins/SKILL.md",
-      "computedHash": "791bda0e6e460511fe82a78e745db519b88ffaeeab4d04a74879a03ca4f41740"
+      "computedHash": "328b52a98e9704c0349ba2cee23a6a92376c06b6b1fd3e60e5c20395b55e25e8"
     },
     "gsap-react": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-react/SKILL.md",
-      "computedHash": "7d3b52822681a4158e371f895c58fb7030ecaf33f585a534b7162f9e92c5d893"
+      "computedHash": "35fd08f2cbfc945f1a8cdd39e232882a19e27781a4043ee1bc71f65432f03389"
     },
     "gsap-scrolltrigger": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-scrolltrigger/SKILL.md",
-      "computedHash": "1cdc5647693783cb7a662d84a5de434c88a051ed56b4d33597c9b5782b5973e6"
+      "computedHash": "c29c5a0fb1506a7f577fe68282eafc6df14b8d2b8ecd24f1f05836f5a0957b67"
     },
     "gsap-timeline": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-timeline/SKILL.md",
-      "computedHash": "54981c2feec5a9c0d57988aeb32315af32bdeadd261550d5e9db7a7b1f08b487"
+      "computedHash": "622140f48b7aa6bcf2f4d4c050b8fa20effa533688a1650854f5ffc1be169a0b"
     },
     "gsap-utils": {
       "source": "greensock/gsap-skills",
       "sourceType": "github",
       "skillPath": "skills/gsap-utils/SKILL.md",
-      "computedHash": "1ab2387f6e694718a4f1b5acf2a4ab16e1b884c3428adf5f6b26d830f00826cf"
+      "computedHash": "d05b56284eea0118d481b8c673aff27cae66199282995bfe78315785f561002d"
     },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/react-best-practices/SKILL.md",
-      "computedHash": "3219a1944e404ffc14d1d9d6aef6dd2e3855b81387ee0a044ccbfe14d34c2357"
+      "computedHash": "7991ed4fbecdac23f47c1a40c243e00a212a9e7f3604db93959b3ae11dffe299"
     },
     "vercel-react-native-skills": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/react-native-skills/SKILL.md",
-      "computedHash": "2e9088a7333666d8c2833b8ff58bd51b955501c42b4c7244f72b4cbf22dafcc4"
+      "computedHash": "4c160f1f4e623b989cadb71f42a0813be574d172acf5e32a6411c87f3e28c05a"
     },
     "vercel-react-view-transitions": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/react-view-transitions/SKILL.md",
-      "computedHash": "6c9169eb561dcdea32408e2525a2eb5375d709dd8dbb3412b895e6c58a8dc22e"
+      "computedHash": "d5bdffc1f132ae0d6d9260c260ae206d48cd83cb148e3e3b75fc1a3b94b249fa"
     }
   }
 }
