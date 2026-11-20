@@ -5,13 +5,13 @@ import SceneShell from "../primitives/SceneShell.astro";
 const meta = getSceneMeta("roadmap");
 ---
 
-<SceneShell meta={meta} class="border-b-0">
+<SceneShell meta={meta} class="border-b-0 pt-28 sm:pt-36">
   <div class="space-y-8">
     <div class="grid gap-5 md:grid-cols-3">
       {ROADMAP_CONTENT.milestones.map((item) => (
         <article
           data-anim="roadmap-card"
-          class="border-line bg-elevated space-y-3 rounded-2xl border p-5"
+          class="surface-glass border-line space-y-2.5 rounded-2xl border p-5"
         >
           <div class="flex items-center justify-between gap-2">
             <span class="text-ink-muted font-mono text-xs font-semibold">
@@ -31,7 +31,7 @@ const meta = getSceneMeta("roadmap");
 
     <div
       data-anim="roadmap-cta"
-      class="border-line-strong bg-elevated flex flex-col gap-6 rounded-2xl border p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between"
+      class="surface-glass border-line-strong flex flex-col gap-6 rounded-2xl border p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between"
     >
       <div class="max-w-xl space-y-2">
         <h3 class="text-ink text-2xl font-bold tracking-tight">
@@ -45,7 +45,7 @@ const meta = getSceneMeta("roadmap");
       <div class="flex flex-wrap items-center gap-3">
         <a
           href={ROADMAP_CONTENT.cta.primaryHref}
-          class="ui-target bg-accent text-accent-ink inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold no-underline transition-opacity hover:opacity-90"
+          class="ui-target bg-accent text-accent-ink inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold no-underline shadow-[0_0_20px_color-mix(in_oklab,var(--accent-primary)_30%,transparent)] transition-opacity hover:opacity-90"
         >
           <span>{ROADMAP_CONTENT.cta.primaryLabel}</span>
           <span aria-hidden="true">→</span>

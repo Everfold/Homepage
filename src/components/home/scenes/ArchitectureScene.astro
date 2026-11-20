@@ -23,7 +23,11 @@ const { nodes } = ARCHITECTURE_CONTENT;
         >
           <title>Agent Loop 与执行工作空间分离架构示意图</title>
 
-          <g data-anim="arch-bridge" style="transform-origin: 480px 200px;">
+          <g
+            data-anim="arch-bridge"
+            class="svg-glow"
+            style="transform-origin: 480px 200px;"
+          >
             <line
               x1="310"
               y1="170"
@@ -38,7 +42,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
               y1="230"
               x2="650"
               y2="230"
-              stroke="var(--border-strong)"
+              stroke="var(--accent-secondary)"
               stroke-width="2"
             />
             <rect
@@ -54,10 +58,10 @@ const { nodes } = ARCHITECTURE_CONTENT;
             />
             <text
               x="480"
-              y="190"
+              y="192"
               text-anchor="middle"
               fill="var(--text-primary)"
-              font-size="16"
+              font-size="18"
               font-weight="700"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
@@ -65,9 +69,9 @@ const { nodes } = ARCHITECTURE_CONTENT;
             </text>
             <text
               x="480"
-              y="218"
+              y="220"
               text-anchor="middle"
-              fill="var(--text-muted)"
+              fill="var(--accent-primary)"
               font-size="12"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
@@ -130,7 +134,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
               font-size="12"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
-              loop_tick() -&gt; emit(action)
+              tick() -&gt; emit(action)
             </text>
             <text
               x="104"
@@ -139,7 +143,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
               font-size="12"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
-              await(observation_event)
+              await(observation)
             </text>
           </g>
 
@@ -157,7 +161,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
             <text
               x="658"
               y="112"
-              fill="var(--accent-primary)"
+              fill="var(--accent-secondary)"
               font-size="12"
               font-weight="700"
               font-family="ui-monospace, SFMono-Regular, monospace"
@@ -198,7 +202,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
               font-size="12"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
-              mount(workspace_adapter)
+              mount(adapter)
             </text>
             <text
               x="674"
@@ -207,7 +211,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
               font-size="12"
               font-family="ui-monospace, SFMono-Regular, monospace"
             >
-              exec() · snapshot() · teardown()
+              exec() · snapshot()
             </text>
           </g>
         </svg>
@@ -218,7 +222,7 @@ const { nodes } = ARCHITECTURE_CONTENT;
       {ARCHITECTURE_CONTENT.steps.map((item) => (
         <article
           data-anim="arch-step"
-          class="border-line bg-elevated space-y-2 rounded-2xl border p-5"
+          class="surface-glass border-line space-y-2 rounded-2xl border p-5"
         >
           <div class="text-accent font-mono text-xs font-semibold">
             {item.step}

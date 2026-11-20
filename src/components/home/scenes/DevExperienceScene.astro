@@ -19,7 +19,7 @@ const meta = getSceneMeta("devex");
           {DEVEX_CONTENT.traceLines.map((line) => (
             <li
               data-anim="trace-line"
-              class="border-line bg-elevated flex flex-col gap-1 rounded-xl border px-3.5 py-2.5 sm:flex-row sm:items-baseline sm:gap-3"
+              class="surface-glass border-line flex flex-col gap-1 rounded-xl border px-3.5 py-2.5 sm:flex-row sm:items-baseline sm:gap-3"
             >
               <span class="text-ink-muted shrink-0 text-[11px]">
                 #{line.seq}
@@ -39,7 +39,7 @@ const meta = getSceneMeta("devex");
         hint={DEVEX_CONTENT.sdkSlot.hint}
         aspect="auto"
       >
-        <pre class="border-line bg-elevated text-ink flex-1 overflow-x-auto rounded-xl border p-4 font-mono text-xs leading-relaxed sm:text-sm"><code>{DEVEX_CONTENT.sdkSnippet}</code></pre>
+        <pre class="border-line bg-canvas/85 text-ink flex-1 overflow-x-auto rounded-xl border p-4 font-mono text-xs leading-relaxed sm:text-sm"><code>{DEVEX_CONTENT.sdkSnippet}</code></pre>
       </PlaceholderFrame>
     </div>
 
@@ -47,7 +47,7 @@ const meta = getSceneMeta("devex");
       {DEVEX_CONTENT.highlights.map((item) => (
         <article
           data-anim="devex-card"
-          class="border-line bg-elevated space-y-2 rounded-2xl border p-5"
+          class="surface-glass border-line space-y-2 rounded-2xl border p-5"
         >
           <h3 class="text-ink text-base font-semibold">{item.title}</h3>
           <p class="text-ink-secondary text-sm leading-relaxed">

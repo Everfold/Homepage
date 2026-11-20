@@ -16,10 +16,10 @@ export const animateHeroScene: SceneAnimator = (root, ctx) => {
     });
   }
 
-  const stage = root.querySelector<HTMLElement>('[data-anim="hero-stage"]');
-  if (stage) {
-    gsap.to(stage, {
-      y: ctx.isDesktop ? -28 : -12,
+  const ambient = root.querySelector<HTMLElement>('[data-anim="hero-ambient"]');
+  if (ambient) {
+    gsap.to(ambient, {
+      y: ctx.isDesktop ? -48 : -20,
       ease: "none",
       scrollTrigger: {
         trigger: root,
