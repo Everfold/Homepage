@@ -18,6 +18,9 @@ export default defineConfig({
     "/en": "/en/docs/",
   },
   vite: {
+    ssr: {
+      noExternal: [/^astro:/],
+    },
     optimizeDeps: {
       exclude: ["astro:toolbar:internal"],
     },
@@ -29,10 +32,32 @@ export default defineConfig({
 
     plugins: [
       {
-        name: "resolve-astro-assets",
-        enforce: "pre",
-        resolveId(id) {
-          if (id === "astro:assets") return "\0astro:assets";
+        name: "astro-virtual-modules-before-filesystem",
+        configResolved(config) {
+          // NTFS with ADS treats `astro:*` paths as the `astro` directory.
+          // Let Astro resolve its virtual modules before Vite checks disk.
+          for (const plugin of config.plugins) {
+            if (
+              !/^astro[:-]/.test(plugin.name) ||
+              plugin.enforce ||
+              !plugin.resolveId
+            ) {
+              continue;
+            }
+            const hook = plugin.resolveId;
+            if (typeof hook === "object") {
+              if (hook.order) continue;
+              const idFilter =
+                hook.filter && "id" in hook.filter ? hook.filter.id : undefined;
+              const matchesAstroVirtual = Array.isArray(idFilter)
+                ? idFilter.some((f) => String(f).includes("astro:"))
+                : typeof idFilter === "string" || idFilter instanceof RegExp
+                  ? String(idFilter).includes("astro:")
+                  : false;
+              if (!matchesAstroVirtual) continue;
+              plugin.resolveId = { ...hook, order: "pre" };
+            }
+          }
         },
       },
       tailwindcss(),
