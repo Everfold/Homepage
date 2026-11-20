@@ -89,6 +89,59 @@ export function initHomeScrollEngine(
         });
       });
 
+      const headerEl =
+        document.querySelector<HTMLElement>("[data-site-header]");
+      const firstScene = sceneNodes[0];
+      const lastScene = sceneNodes[sceneNodes.length - 1];
+
+      if (headerEl && firstScene && lastScene) {
+        let inFirst = true;
+        let inLast = firstScene === lastScene;
+
+        const syncHeader = () => {
+          const visible = inFirst || inLast;
+          headerEl.dataset.visible = visible ? "true" : "false";
+          headerEl.inert = !visible;
+        };
+
+        syncHeader();
+
+        ScrollTrigger.create({
+          trigger: firstScene,
+          start: -1,
+          end: "bottom 25%",
+          onToggle: (self) => {
+            inFirst = self.isActive;
+            syncHeader();
+          },
+          onRefresh: (self) => {
+            inFirst = self.isActive;
+            syncHeader();
+          },
+        });
+
+        if (lastScene !== firstScene) {
+          ScrollTrigger.create({
+            trigger: lastScene,
+            start: "top 65%",
+            end: () => ScrollTrigger.maxScroll(window) + 10,
+            onToggle: (self) => {
+              inLast = self.isActive;
+              syncHeader();
+            },
+            onRefresh: (self) => {
+              inLast = self.isActive;
+              syncHeader();
+            },
+          });
+        }
+
+        cleanups.push(() => {
+          headerEl.dataset.visible = "true";
+          headerEl.inert = false;
+        });
+      }
+
       const progressEl = document.querySelector<HTMLElement>(
         "[data-scroll-progress]",
       );
