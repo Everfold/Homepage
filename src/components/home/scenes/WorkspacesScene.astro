@@ -1,0 +1,54 @@
+---
+import { WORKSPACES_CONTENT, getSceneMeta } from "../../../data/home/scenes";
+import PlaceholderFrame from "../primitives/PlaceholderFrame.astro";
+import SceneShell from "../primitives/SceneShell.astro";
+
+const meta = getSceneMeta("workspaces");
+---
+
+<SceneShell meta={meta}>
+  <div data-anim="workspaces-stage" class="space-y-6">
+    <div
+      class="hidden items-center justify-between gap-4 [[data-horizontal-active='true']_&]:flex"
+      aria-hidden="true"
+    >
+      <span class="text-ink-muted font-mono text-xs">
+        HORIZONTAL WORKSPACE TRACK · SCROLL TO INSPECT ADAPTERS
+      </span>
+      <div class="bg-line h-1 w-40 overflow-hidden rounded-full">
+        <div
+          data-anim="workspaces-progress"
+          class="bg-accent h-full w-full origin-left scale-x-0"
+        ></div>
+      </div>
+    </div>
+
+    <div data-workspaces-viewport>
+      <div data-workspaces-track class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {WORKSPACES_CONTENT.cards.map((card) => (
+          <article
+            data-workspace-card
+            class="border-line bg-elevated flex flex-col justify-between gap-4 rounded-2xl border p-5"
+          >
+            <div class="space-y-2">
+              <span class="text-accent font-mono text-xs font-semibold">
+                {card.tag}
+              </span>
+              <h3 class="text-ink text-xl font-semibold">{card.title}</h3>
+              <p class="text-ink-secondary text-sm leading-relaxed">
+                {card.summary}
+              </p>
+            </div>
+
+            <PlaceholderFrame
+              slotId={card.slotId}
+              label={card.tag}
+              hint={card.placeholderHint}
+              aspect="16/10"
+            />
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</SceneShell>

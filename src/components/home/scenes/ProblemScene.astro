@@ -1,0 +1,64 @@
+---
+import { PROBLEM_CONTENT, getSceneMeta } from "../../../data/home/scenes";
+import PlaceholderFrame from "../primitives/PlaceholderFrame.astro";
+import SceneShell from "../primitives/SceneShell.astro";
+
+const meta = getSceneMeta("problem");
+---
+
+<SceneShell meta={meta}>
+  <div
+    data-anim="problem-stage"
+    class="grid gap-8 lg:grid-cols-12 lg:items-start"
+  >
+    <div class="space-y-4 lg:col-span-6">
+      {PROBLEM_CONTENT.beats.map((beat) => (
+        <article
+          data-anim="problem-beat"
+          class="border-line bg-elevated space-y-2.5 rounded-2xl border p-5"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-ink-muted font-mono text-xs font-semibold">
+              BEAT {beat.index}
+            </span>
+            <span class="border-accent/40 bg-accent-soft text-ink rounded-md border px-2 py-0.5 font-mono text-[11px]">
+              {beat.decoupledLabel}
+            </span>
+          </div>
+          <h3 class="text-ink text-lg font-semibold">{beat.coupledTitle}</h3>
+          <p class="text-ink-secondary text-sm leading-relaxed">
+            {beat.coupledDesc}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="lg:col-span-6">
+      <PlaceholderFrame
+        slotId={PROBLEM_CONTENT.visualSlot.slotId}
+        label={PROBLEM_CONTENT.visualSlot.label}
+        hint={PROBLEM_CONTENT.visualSlot.hint}
+        aspect="4/3"
+      >
+        <div class="flex flex-1 flex-col justify-center gap-3">
+          {PROBLEM_CONTENT.visualSlot.states.map((state) => (
+            <div
+              data-anim="problem-visual-state"
+              class="border-line bg-elevated/95 rounded-xl border p-4"
+            >
+              <div class="text-accent font-mono text-[11px] font-semibold">
+                {state.tag}
+              </div>
+              <div class="text-ink mt-1 text-sm font-semibold">
+                {state.title}
+              </div>
+              <div class="text-ink-secondary mt-1 text-xs leading-relaxed">
+                {state.summary}
+              </div>
+            </div>
+          ))}
+        </div>
+      </PlaceholderFrame>
+    </div>
+  </div>
+</SceneShell>

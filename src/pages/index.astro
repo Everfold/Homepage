@@ -1,11 +1,26 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ChapterRail from "../components/home/chrome/ChapterRail.astro";
+import SiteFooter from "../components/home/chrome/SiteFooter.astro";
+import SiteHeader from "../components/home/chrome/SiteHeader.astro";
+import ArchitectureScene from "../components/home/scenes/ArchitectureScene.astro";
+import DevExperienceScene from "../components/home/scenes/DevExperienceScene.astro";
+import HeroScene from "../components/home/scenes/HeroScene.astro";
+import ProblemScene from "../components/home/scenes/ProblemScene.astro";
+import RoadmapScene from "../components/home/scenes/RoadmapScene.astro";
+import WorkspacesScene from "../components/home/scenes/WorkspacesScene.astro";
+import MarketingLayout from "../layouts/MarketingLayout.astro";
 ---
 
-<Layout>
-  <Welcome />
-</Layout>
+<MarketingLayout>
+  <SiteHeader slot="chrome" />
+  <ChapterRail slot="chrome" />
+
+  <HeroScene />
+  <ProblemScene />
+  <ArchitectureScene />
+  <WorkspacesScene />
+  <DevExperienceScene />
+  <RoadmapScene />
+
+  <SiteFooter slot="footer" />
+</MarketingLayout>

@@ -1,0 +1,60 @@
+---
+import { DEVEX_CONTENT, getSceneMeta } from "../../../data/home/scenes";
+import PlaceholderFrame from "../primitives/PlaceholderFrame.astro";
+import SceneShell from "../primitives/SceneShell.astro";
+
+const meta = getSceneMeta("devex");
+---
+
+<SceneShell meta={meta}>
+  <div class="space-y-6">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <PlaceholderFrame
+        slotId={DEVEX_CONTENT.traceSlot.slotId}
+        label={DEVEX_CONTENT.traceSlot.label}
+        hint={DEVEX_CONTENT.traceSlot.hint}
+        aspect="auto"
+      >
+        <ol class="flex-1 space-y-2.5 font-mono text-xs sm:text-sm">
+          {DEVEX_CONTENT.traceLines.map((line) => (
+            <li
+              data-anim="trace-line"
+              class="border-line bg-elevated flex flex-col gap-1 rounded-xl border px-3.5 py-2.5 sm:flex-row sm:items-baseline sm:gap-3"
+            >
+              <span class="text-ink-muted shrink-0 text-[11px]">
+                #{line.seq}
+              </span>
+              <span class="text-accent shrink-0 font-semibold">
+                {line.channel}
+              </span>
+              <span class="text-ink-secondary break-all">{line.payload}</span>
+            </li>
+          ))}
+        </ol>
+      </PlaceholderFrame>
+
+      <PlaceholderFrame
+        slotId={DEVEX_CONTENT.sdkSlot.slotId}
+        label={DEVEX_CONTENT.sdkSlot.label}
+        hint={DEVEX_CONTENT.sdkSlot.hint}
+        aspect="auto"
+      >
+        <pre class="border-line bg-elevated text-ink flex-1 overflow-x-auto rounded-xl border p-4 font-mono text-xs leading-relaxed sm:text-sm"><code>{DEVEX_CONTENT.sdkSnippet}</code></pre>
+      </PlaceholderFrame>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      {DEVEX_CONTENT.highlights.map((item) => (
+        <article
+          data-anim="devex-card"
+          class="border-line bg-elevated space-y-2 rounded-2xl border p-5"
+        >
+          <h3 class="text-ink text-base font-semibold">{item.title}</h3>
+          <p class="text-ink-secondary text-sm leading-relaxed">
+            {item.detail}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</SceneShell>

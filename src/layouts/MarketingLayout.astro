@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+import { SITE_CONFIG } from "../data/home/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const {
+  title = SITE_CONFIG.title,
+  description = SITE_CONFIG.description,
+  lang = "zh-CN",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-canvas text-ink selection:bg-accent selection:text-accent-ink">
+    <a href="#hero-heading" class="skip-link visually-hidden">
+      跳转到主要内容
+    </a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+
+    <slot name="chrome" />
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main>
+          <slot />
+        </main>
+        <slot name="footer" />
+      </div>
+    </div>
+
+    <script>
+      import "../scripts/scroll/bootstrap";
+    </script>
+  </body>
+</html>

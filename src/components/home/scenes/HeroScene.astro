@@ -1,0 +1,109 @@
+---
+import { HERO_CONTENT, getSceneMeta } from "../../../data/home/scenes";
+import PlaceholderFrame from "../primitives/PlaceholderFrame.astro";
+import SceneShell from "../primitives/SceneShell.astro";
+
+const meta = getSceneMeta("hero");
+---
+
+<SceneShell meta={meta} hideHeader fullHeight>
+  <div class="space-y-10">
+    <div class="max-w-3xl space-y-6">
+      <div data-anim="hero-item" class="flex flex-wrap items-center gap-2.5">
+        <span class="border-accent/40 bg-accent-soft text-ink inline-flex items-center rounded-full border px-3 py-1 font-mono text-xs font-semibold">
+          {meta.index} · {HERO_CONTENT.badge}
+        </span>
+      </div>
+
+      <h1
+        id="hero-heading"
+        tabindex="-1"
+        data-anim="hero-item"
+        class="text-ink text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+      >
+        {HERO_CONTENT.headline}
+      </h1>
+
+      <p
+        data-anim="hero-item"
+        class="text-ink-secondary text-lg leading-relaxed sm:text-xl"
+      >
+        {HERO_CONTENT.subheadline}
+      </p>
+
+      <div data-anim="hero-item" class="flex flex-wrap items-center gap-3 pt-1">
+        <a
+          href={HERO_CONTENT.primaryCta.href}
+          class="ui-target bg-accent text-accent-ink inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold no-underline transition-opacity hover:opacity-90"
+        >
+          <span>{HERO_CONTENT.primaryCta.label}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href={HERO_CONTENT.secondaryCta.href}
+          data-scroll-to={HERO_CONTENT.secondaryCta.href}
+          class="ui-target border-line-strong bg-elevated text-ink hover:border-accent inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-semibold no-underline transition-colors"
+        >
+          <span>{HERO_CONTENT.secondaryCta.label}</span>
+        </a>
+      </div>
+
+      <ul
+        data-anim="hero-item"
+        class="flex flex-wrap gap-2 pt-2"
+        aria-label="核心架构特性"
+      >
+        {HERO_CONTENT.pillars.map((pillar) => (
+          <li class="border-line bg-elevated text-ink-secondary rounded-lg border px-3 py-1 font-mono text-xs">
+            {pillar}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div data-anim="hero-stage">
+      <PlaceholderFrame
+        slotId={HERO_CONTENT.stageSlot.slotId}
+        label={HERO_CONTENT.stageSlot.label}
+        hint={HERO_CONTENT.stageSlot.hint}
+        aspect="16/9"
+      >
+        <div
+          aria-hidden="true"
+          class="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-3 sm:items-center"
+        >
+          <div class="border-line-strong bg-elevated/90 rounded-xl border p-4 shadow-xs">
+            <div class="text-ink-muted font-mono text-[11px]">01 / LOOP</div>
+            <div class="text-ink mt-1 text-sm font-semibold">
+              Reasoning &amp; Policy
+            </div>
+            <div class="text-ink-muted mt-2 font-mono text-xs">
+              plan() · memory · state
+            </div>
+          </div>
+
+          <div class="border-accent/50 bg-accent-soft/60 rounded-xl border border-dashed p-4 text-center">
+            <div class="text-ink font-mono text-xs font-semibold">
+              PROTOCOL BOUNDARY
+            </div>
+            <div class="text-ink-secondary mt-1 font-mono text-[11px]">
+              dispatch ⇄ stream ⇄ snapshot
+            </div>
+          </div>
+
+          <div class="border-line-strong bg-elevated/90 rounded-xl border p-4 shadow-xs">
+            <div class="text-ink-muted font-mono text-[11px]">
+              02 / WORKSPACES
+            </div>
+            <div class="text-ink mt-1 text-sm font-semibold">
+              Extensible Execution
+            </div>
+            <div class="text-ink-muted mt-2 font-mono text-xs">
+              local · container · cloud-vm
+            </div>
+          </div>
+        </div>
+      </PlaceholderFrame>
+    </div>
+  </div>
+</SceneShell>

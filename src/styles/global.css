@@ -1,1 +1,253 @@
 @import "tailwindcss";
+
+@theme inline {
+  --color-canvas: var(--surface-canvas);
+  --color-elevated: var(--surface-elevated);
+  --color-blueprint: var(--surface-blueprint);
+  --color-ink: var(--text-primary);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-strong);
+  --color-accent: var(--accent-primary);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-contrast);
+}
+
+:root {
+  --surface-canvas-light: #f8fafc;
+  --surface-canvas-dark: #090b10;
+
+  --surface-elevated-light: #ffffff;
+  --surface-elevated-dark: #111520;
+
+  --surface-blueprint-light: #f1f5f9;
+  --surface-blueprint-dark: #0d121c;
+
+  --text-primary-light: #0f172a;
+  --text-primary-dark: #f1f5f9;
+
+  --text-secondary-light: #334155;
+  --text-secondary-dark: #cbd5e1;
+
+  --text-muted-light: #475569;
+  --text-muted-dark: #94a3b8;
+
+  --border-subtle-light: #cbd5e1;
+  --border-subtle-dark: #1e293b;
+
+  --border-strong-light: #94a3b8;
+  --border-strong-dark: #334155;
+
+  --accent-primary-light: #0369a1;
+  --accent-primary-dark: #38bdf8;
+
+  --accent-soft-light: #e0f2fe;
+  --accent-soft-dark: #0c2336;
+
+  --accent-contrast-light: #ffffff;
+  --accent-contrast-dark: #04101b;
+
+  --surface-canvas: var(--surface-canvas-light);
+  --surface-elevated: var(--surface-elevated-light);
+  --surface-blueprint: var(--surface-blueprint-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-muted: var(--text-muted-light);
+  --border-subtle: var(--border-subtle-light);
+  --border-strong: var(--border-strong-light);
+  --accent-primary: var(--accent-primary-light);
+  --accent-soft: var(--accent-soft-light);
+  --accent-contrast: var(--accent-contrast-light);
+
+  @media (prefers-color-scheme: dark) {
+    --surface-canvas: var(--surface-canvas-dark);
+    --surface-elevated: var(--surface-elevated-dark);
+    --surface-blueprint: var(--surface-blueprint-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --text-muted: var(--text-muted-dark);
+    --border-subtle: var(--border-subtle-dark);
+    --border-strong: var(--border-strong-dark);
+    --accent-primary: var(--accent-primary-dark);
+    --accent-soft: var(--accent-soft-dark);
+    --accent-contrast: var(--accent-contrast-dark);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --surface-canvas: light-dark(
+      var(--surface-canvas-light),
+      var(--surface-canvas-dark)
+    );
+    --surface-elevated: light-dark(
+      var(--surface-elevated-light),
+      var(--surface-elevated-dark)
+    );
+    --surface-blueprint: light-dark(
+      var(--surface-blueprint-light),
+      var(--surface-blueprint-dark)
+    );
+    --text-primary: light-dark(
+      var(--text-primary-light),
+      var(--text-primary-dark)
+    );
+    --text-secondary: light-dark(
+      var(--text-secondary-light),
+      var(--text-secondary-dark)
+    );
+    --text-muted: light-dark(var(--text-muted-light), var(--text-muted-dark));
+    --border-subtle: light-dark(
+      var(--border-subtle-light),
+      var(--border-subtle-dark)
+    );
+    --border-strong: light-dark(
+      var(--border-strong-light),
+      var(--border-strong-dark)
+    );
+    --accent-primary: light-dark(
+      var(--accent-primary-light),
+      var(--accent-primary-dark)
+    );
+    --accent-soft: light-dark(
+      var(--accent-soft-light),
+      var(--accent-soft-dark)
+    );
+    --accent-contrast: light-dark(
+      var(--accent-contrast-light),
+      var(--accent-contrast-dark)
+    );
+  }
+
+  color-scheme: light dark;
+  accent-color: var(--accent-primary);
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    background-color: var(--surface-canvas);
+    color: var(--text-primary);
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(a:any-link, button):focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+}
+
+.ui-target {
+  min-block-size: 2.25rem;
+  min-inline-size: 2.25rem;
+}
+
+@media (pointer: coarse) {
+  .ui-target {
+    min-block-size: 2.75rem;
+    min-inline-size: 2.75rem;
+  }
+}
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.skip-link:where(:focus-within, :active) {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--accent-primary);
+  color: var(--accent-contrast);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.25);
+}
+
+.scroll-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 2px;
+  z-index: 60;
+  pointer-events: none;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background-color: var(--accent-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    @keyframes grow-scroll-progress {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .scroll-progress {
+      animation: grow-scroll-progress auto linear;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+.blueprint-grid {
+  background-color: var(--surface-blueprint);
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--border-subtle) 45%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--border-subtle) 45%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+}
+
+/* Progressive enhancement: horizontal pinned track only when desktop GSAP engine activates it */
+[data-scene="workspaces"][data-horizontal-active="true"]
+  [data-workspaces-viewport] {
+  overflow: hidden;
+}
+
+[data-scene="workspaces"][data-horizontal-active="true"]
+  [data-workspaces-track] {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 1.5rem;
+}
+
+[data-scene="workspaces"][data-horizontal-active="true"] [data-workspace-card] {
+  inline-size: min(30rem, 72vw);
+  flex-shrink: 0;
+}

@@ -1,0 +1,46 @@
+---
+import { SITE_CONFIG } from "../../../data/home/site";
+---
+
+<header class="border-line bg-canvas/85 fixed inset-x-0 top-0 z-40 border-b backdrop-blur-md">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <div class="flex min-w-0 items-center gap-3">
+      <a
+        href="#hero"
+        data-scroll-to="#hero"
+        class="ui-target text-ink inline-flex items-center gap-2 rounded-md px-2 font-semibold tracking-tight no-underline"
+      >
+        <span
+          class="bg-accent inline-block size-2.5 shrink-0 rounded-xs"
+          aria-hidden="true"
+        ></span>
+        <span>{SITE_CONFIG.brand}</span>
+      </a>
+      <span class="border-line bg-elevated text-ink-muted hidden rounded-full border px-2.5 py-0.5 font-mono text-xs sm:inline-flex">
+        {SITE_CONFIG.statusBadge}
+      </span>
+    </div>
+
+    <nav aria-label="主菜单" class="hidden items-center gap-1 md:flex">
+      {SITE_CONFIG.headerNav.map((item) => (
+        <a
+          href={item.target}
+          data-scroll-to={item.target}
+          class="ui-target text-ink-secondary hover:bg-elevated hover:text-ink inline-flex items-center rounded-md px-3 text-sm font-medium no-underline transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex shrink-0 items-center gap-2">
+      <a
+        href={SITE_CONFIG.docsHref}
+        class="ui-target bg-accent text-accent-ink inline-flex items-center gap-1.5 rounded-lg px-3.5 text-sm font-semibold no-underline transition-opacity hover:opacity-90"
+      >
+        <span>文档</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</header>
