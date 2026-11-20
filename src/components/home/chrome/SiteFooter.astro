@@ -2,20 +2,16 @@
 import { SITE_CONFIG } from "../../../data/home/site";
 ---
 
-<footer class="border-line bg-elevated/60 border-t py-12">
-  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:items-start md:justify-between">
-    <div class="max-w-xl space-y-2">
-      <div class="flex items-center gap-2">
-        <span class="text-ink text-base font-semibold tracking-tight">
-          {SITE_CONFIG.brand}
-        </span>
-        <span class="border-line text-ink-muted rounded-full border px-2 py-0.5 font-mono text-[11px]">
-          SKELETON
-        </span>
-      </div>
-      <p class="text-ink-secondary text-sm leading-relaxed">
-        {SITE_CONFIG.footerNote}
-      </p>
+<footer class="border-line/70 bg-canvas border-t py-10">
+  <div class="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div class="flex items-center gap-2.5">
+      <span
+        class="bg-accent inline-block size-2 rounded-xs"
+        aria-hidden="true"
+      ></span>
+      <span class="text-ink text-sm font-semibold tracking-tight">
+        {SITE_CONFIG.brand}
+      </span>
     </div>
 
     <nav aria-label="页脚链接" class="flex flex-wrap items-center gap-2">
@@ -23,7 +19,7 @@ import { SITE_CONFIG } from "../../../data/home/site";
         <a
           href={link.href}
           data-scroll-to={link.href.startsWith("#") ? link.href : undefined}
-          class="ui-target border-line bg-canvas text-ink-secondary hover:border-line-strong hover:text-ink inline-flex items-center rounded-lg border px-3 text-sm no-underline transition-colors"
+          class="ui-target border-line bg-elevated text-ink-secondary hover:border-line-strong hover:text-ink inline-flex items-center rounded-lg border px-3 text-sm no-underline transition-colors"
         >
           {link.label}
         </a>

@@ -10,116 +10,55 @@
   --color-line: var(--border-subtle);
   --color-line-strong: var(--border-strong);
   --color-accent: var(--accent-primary);
+  --color-accent-2: var(--accent-secondary);
   --color-accent-soft: var(--accent-soft);
   --color-accent-ink: var(--accent-contrast);
 }
 
 :root {
-  --surface-canvas-light: #f8fafc;
-  --surface-canvas-dark: #090b10;
+  --surface-canvas: #000000;
+  --surface-elevated: #0a0d16;
+  --surface-blueprint: #060911;
 
-  --surface-elevated-light: #ffffff;
-  --surface-elevated-dark: #111520;
+  --text-primary: #f8fafc;
+  --text-secondary: #a1adc2;
+  --text-muted: #8592a8;
 
-  --surface-blueprint-light: #f1f5f9;
-  --surface-blueprint-dark: #0d121c;
+  --border-subtle: #1b2434;
+  --border-strong: #2d3c54;
 
-  --text-primary-light: #0f172a;
-  --text-primary-dark: #f1f5f9;
+  --accent-primary: #22d3ee;
+  --accent-secondary: #818cf8;
+  --accent-soft: color-mix(in oklab, var(--accent-primary) 14%, transparent);
+  --accent-contrast: #020617;
 
-  --text-secondary-light: #334155;
-  --text-secondary-dark: #cbd5e1;
+  --in-oklab: ;
+  --in-oklch: ;
 
-  --text-muted-light: #475569;
-  --text-muted-dark: #94a3b8;
-
-  --border-subtle-light: #cbd5e1;
-  --border-subtle-dark: #1e293b;
-
-  --border-strong-light: #94a3b8;
-  --border-strong-dark: #334155;
-
-  --accent-primary-light: #0369a1;
-  --accent-primary-dark: #38bdf8;
-
-  --accent-soft-light: #e0f2fe;
-  --accent-soft-dark: #0c2336;
-
-  --accent-contrast-light: #ffffff;
-  --accent-contrast-dark: #04101b;
-
-  --surface-canvas: var(--surface-canvas-light);
-  --surface-elevated: var(--surface-elevated-light);
-  --surface-blueprint: var(--surface-blueprint-light);
-  --text-primary: var(--text-primary-light);
-  --text-secondary: var(--text-secondary-light);
-  --text-muted: var(--text-muted-light);
-  --border-subtle: var(--border-subtle-light);
-  --border-strong: var(--border-strong-light);
-  --accent-primary: var(--accent-primary-light);
-  --accent-soft: var(--accent-soft-light);
-  --accent-contrast: var(--accent-contrast-light);
-
-  @media (prefers-color-scheme: dark) {
-    --surface-canvas: var(--surface-canvas-dark);
-    --surface-elevated: var(--surface-elevated-dark);
-    --surface-blueprint: var(--surface-blueprint-dark);
-    --text-primary: var(--text-primary-dark);
-    --text-secondary: var(--text-secondary-dark);
-    --text-muted: var(--text-muted-dark);
-    --border-subtle: var(--border-subtle-dark);
-    --border-strong: var(--border-strong-dark);
-    --accent-primary: var(--accent-primary-dark);
-    --accent-soft: var(--accent-soft-dark);
-    --accent-contrast: var(--accent-contrast-dark);
+  @supports (background: linear-gradient(in oklab, white, black)) {
+    --in-oklab: in oklab;
+    --in-oklch: in oklch;
   }
 
-  @supports (color: light-dark(white, black)) {
-    --surface-canvas: light-dark(
-      var(--surface-canvas-light),
-      var(--surface-canvas-dark)
-    );
-    --surface-elevated: light-dark(
-      var(--surface-elevated-light),
-      var(--surface-elevated-dark)
-    );
-    --surface-blueprint: light-dark(
-      var(--surface-blueprint-light),
-      var(--surface-blueprint-dark)
-    );
-    --text-primary: light-dark(
-      var(--text-primary-light),
-      var(--text-primary-dark)
-    );
-    --text-secondary: light-dark(
-      var(--text-secondary-light),
-      var(--text-secondary-dark)
-    );
-    --text-muted: light-dark(var(--text-muted-light), var(--text-muted-dark));
-    --border-subtle: light-dark(
-      var(--border-subtle-light),
-      var(--border-subtle-dark)
-    );
-    --border-strong: light-dark(
-      var(--border-strong-light),
-      var(--border-strong-dark)
-    );
-    --accent-primary: light-dark(
-      var(--accent-primary-light),
-      var(--accent-primary-dark)
-    );
-    --accent-soft: light-dark(
-      var(--accent-soft-light),
-      var(--accent-soft-dark)
-    );
-    --accent-contrast: light-dark(
-      var(--accent-contrast-light),
-      var(--accent-contrast-dark)
-    );
-  }
-
-  color-scheme: light dark;
+  color-scheme: dark;
   accent-color: var(--accent-primary);
+}
+
+@media (forced-colors: active) {
+  :root {
+    --surface-canvas: Canvas;
+    --surface-elevated: Canvas;
+    --surface-blueprint: Canvas;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
+    --text-muted: GrayText;
+    --border-subtle: CanvasText;
+    --border-strong: Highlight;
+    --accent-primary: Highlight;
+    --accent-secondary: Highlight;
+    --accent-soft: Canvas;
+    --accent-contrast: HighlightText;
+  }
 }
 
 @layer base {
@@ -184,7 +123,7 @@
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgb(0 0 0 / 0.25);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.55);
 }
 
 .scroll-progress {
@@ -196,7 +135,20 @@
   pointer-events: none;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background-color: var(--accent-primary);
+  background: linear-gradient(
+    to right var(--in-oklch),
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  box-shadow: 0 0 14px
+    color-mix(in oklab, var(--accent-primary) 70%, transparent);
+}
+
+@media (forced-colors: active) {
+  .scroll-progress {
+    background: Highlight;
+    box-shadow: none;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -217,20 +169,95 @@
   }
 }
 
+.hero-aura {
+  pointer-events: none;
+  isolation: isolate;
+  background-image:
+    radial-gradient(
+      ellipse 60% 42% at 50% 18%,
+      color-mix(in oklab, var(--accent-primary) 20%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 45% 36% at 72% 48%,
+      color-mix(in oklab, var(--accent-secondary) 16%, transparent),
+      transparent 70%
+    );
+}
+
+.text-gradient-hero {
+  background: linear-gradient(
+    to bottom var(--in-oklab),
+    #ffffff 25%,
+    #a5f3fc 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+@media (forced-colors: active) {
+  .text-gradient-hero {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+.surface-glass {
+  background-color: color-mix(
+    in oklab,
+    var(--surface-elevated) 88%,
+    transparent
+  );
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 9%, transparent),
+    0 18px 42px rgb(0 0 0 / 0.55);
+}
+
+.svg-glow {
+  filter: drop-shadow(
+    0 0 10px color-mix(in oklab, var(--accent-primary) 45%, transparent)
+  );
+}
+
 .blueprint-grid {
   background-color: var(--surface-blueprint);
   background-image:
     linear-gradient(
       to right,
-      color-mix(in srgb, var(--border-subtle) 45%, transparent) 1px,
+      color-mix(in oklab, var(--border-subtle) 55%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--border-subtle) 45%, transparent) 1px,
+      color-mix(in oklab, var(--border-subtle) 55%, transparent) 1px,
       transparent 1px
     );
-  background-size: 24px 24px;
+  background-size: 28px 28px;
+}
+
+[data-site-header] {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-site-header] {
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.25s ease;
+  }
+}
+
+[data-site-header][data-visible="true"] {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+[data-site-header][data-visible="false"] {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Progressive enhancement: horizontal pinned track only when desktop GSAP engine activates it */
