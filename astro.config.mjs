@@ -71,6 +71,9 @@ export default defineConfig({
         "zh-CN": "Everfold 文档",
         en: "Everfold Documentation",
       },
+      logo: {
+        src: "./src/assets/logo.svg",
+      },
       defaultLocale: "root",
       locales: {
         root: { label: "简体中文", lang: "zh-CN" },
